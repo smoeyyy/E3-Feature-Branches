@@ -1,3 +1,11 @@
+/// <reference path="./asset-url.d.ts" />
+
+// Moon asset created by Trinity using Procreate
+import moonImage from "./assets/moon.png?no-inline";
+
+// Sun asset created by Trinity using Procreate
+import sunImage from "./assets/sun.png?no-inline";
+
 const portrait = document.querySelector<HTMLDivElement>("#portrait")!;
 const spin = document.querySelector<HTMLButtonElement>("#spin")!;
 
@@ -5,7 +13,10 @@ const spin = document.querySelector<HTMLButtonElement>("#spin")!;
 const face = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 face.setAttribute("viewBox", "0 0 200 200");
 face.setAttribute("role", "img");
-face.setAttribute("aria-label", "A neutral face");
+face.setAttribute(
+  "aria-label",
+  "A character portrait with sun and moon earrings",
+);
 
 const head = document.createElementNS("http://www.w3.org/2000/svg", "ellipse");
 head.setAttribute("cx", "100");
@@ -58,6 +69,32 @@ mouth.setAttribute("stroke", "#302c29");
 mouth.setAttribute("stroke-width", "4");
 mouth.setAttribute("stroke-linecap", "round");
 face.append(mouth);
+
+const sun = document.createElementNS(
+  "http://www.w3.org/2000/svg",
+  "image",
+);
+
+sun.setAttribute("href", sunImage);
+sun.setAttribute("x", "10");
+sun.setAttribute("y", "100");
+sun.setAttribute("width", "25");
+sun.setAttribute("height", "25");
+
+face.append(sun);
+
+const moon = document.createElementNS(
+  "http://www.w3.org/2000/svg",
+  "image",
+);
+
+moon.setAttribute("href", moonImage);
+moon.setAttribute("x", "165");
+moon.setAttribute("y", "100");
+moon.setAttribute("width", "25");
+moon.setAttribute("height", "25");
+
+face.append(moon);
 
 portrait.append(face);
 
