@@ -26,4 +26,4 @@ work as well as I intended. Feature B explored sun and moon earrings, but the co
 with the color of the face and was hard to see. These alternatives were interesting to explore but option C provided
 the best overall portrait.
 
-Branches A and B are kept for reference. Feature branch C has been selected and brought to main.
+Branches A and B are kept for reference. Feature branch C has been selected and was brought to main.
