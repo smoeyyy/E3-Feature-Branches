@@ -5,7 +5,7 @@ const spin = document.querySelector<HTMLButtonElement>("#spin")!;
 const face = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 face.setAttribute("viewBox", "0 0 200 200");
 face.setAttribute("role", "img");
-face.setAttribute("aria-label", "A neutral face");
+face.setAttribute("aria-label", "A face with freckles and a pointy mohawk");
 
 const head = document.createElementNS("http://www.w3.org/2000/svg", "ellipse");
 head.setAttribute("cx", "100");
@@ -16,6 +16,22 @@ head.setAttribute("fill", "#f3cf87");
 head.setAttribute("stroke", "#302c29");
 head.setAttribute("stroke-width", "4");
 face.append(head);
+
+for (let i = 0; i < 5; i++) {
+  const spike = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "polygon",
+  );
+
+  const x = 76 + i * 10;
+
+  const points = `${x},30 ${x + 5},${-10 - (i % 2) * 5} ${x + 10},30`;
+
+  spike.setAttribute("points", points);
+  spike.setAttribute("fill", "#302c29");
+
+  face.append(spike);
+}
 
 const leftEye = document.createElementNS(
   "http://www.w3.org/2000/svg",
@@ -58,6 +74,28 @@ mouth.setAttribute("stroke", "#302c29");
 mouth.setAttribute("stroke-width", "4");
 mouth.setAttribute("stroke-linecap", "round");
 face.append(mouth);
+
+for (let side = 0; side < 2; side++) {
+  for (let row = 0; row < 5; row++) {
+    for (let col = 0; col < 10; col++) {
+      const freckle = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "circle",
+      );
+
+      const x = side === 0 ? 45 + col * 4 : 115 + col * 4;
+
+      const y = 105 + row * 5;
+
+      freckle.setAttribute("cx", String(x));
+      freckle.setAttribute("cy", String(y));
+      freckle.setAttribute("r", "1.5");
+      freckle.setAttribute("fill", "#9b6545");
+
+      face.append(freckle);
+    }
+  }
+}
 
 portrait.append(face);
 
